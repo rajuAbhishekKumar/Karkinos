@@ -8,26 +8,26 @@
 integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" 
 crossorigin="anonymous">
 
-<div style="background-image: url('images/186020.jpg');padding-bottom: 80px;">
+<div style="background-image: url('images/186020.jpg');padding-bottom: 220px;">
 
 </head>
 <body>
 	<div class="container">
 		<h1>Patient Management System</h1>
 		<hr>
-		<h2>Save Patient</h2>
+		<h2>New Patient Details</h2>
 		
 		<form action="#" th:action="@{/savePatient}" th:object="${patient}"
 		method="POST">
 					
 			<input type="text" th:field="*{name}"
-			placeholder="Patient Full Name" class="form-control mb-4 col-4">
+			placeholder="Patient Full Name" class="form-control mb-4 col-4"><br>
 		
 			<input type="text" th:field="*{gender}"
-			placeholder="Patient Gender" class="form-control mb-4 col-4">
+			placeholder="Patient Gender" class="form-control mb-4 col-4"><br>
 		
 			<input type="text" th:field="*{phone}"
-			placeholder="Patient Phone Number" class="form-control mb-4 col-4"> 
+			placeholder="Patient Phone Number" class="form-control mb-4 col-4"><br>
 		
 		<button type="submit" class="btn btn-info col-2" > Save Patient</button>
 		</form>

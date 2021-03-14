@@ -7,6 +7,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+
+/*POJO class for PATIENT. */
 @Entity
 @Table(name = "patient")
 public class Patient {

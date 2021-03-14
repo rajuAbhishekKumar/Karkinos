@@ -19,6 +19,7 @@ public class PatientController {
 	@Autowired
 	private PatientService patientService;
 	
+	//Mapping for Main page 
 	@GetMapping("/")
 	public String viewHomePage(Model model,@RequestParam(defaultValue ="") String name) {
 		model.addAttribute("listPatients", patientService.findByName(name));
@@ -27,6 +28,7 @@ public class PatientController {
 	}
 		
 	
+	//Form to add new User 
 	@GetMapping("/showNewPatientForm")
 	public String showNewPatientForm(Model model) {
 		
@@ -36,7 +38,7 @@ public class PatientController {
 		
 	}
 
-		
+	//Save the Patient record in DB	
 	@PostMapping("/savePatient")
 	public String savePatient(@ModelAttribute("patient") Patient patient) {
 		patientService.savePatient(patient);
@@ -44,6 +46,7 @@ public class PatientController {
 		
 	}
 	
+	//Search the patient based on ID.
 	@GetMapping("/showFormForUpdate/{ID}")
 	public String showFormForUpdate(@PathVariable(value="ID")long id,Model model) {
 		Patient patient = patientService.getPatientById(id);
@@ -53,7 +56,7 @@ public class PatientController {
 	}
 	
 	
-	
+	//To delete patient record
 	@GetMapping("/deletePatient/{ID}")
 	public String showFormForUpdate(@PathVariable(value="ID")long id) {
 		

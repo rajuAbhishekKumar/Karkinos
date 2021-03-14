@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.karkinos.springboot.model.Patient;
 import com.karkinos.springboot.repository.PatientRepository;
 
+/*Service layer file for our application for business logic operations  */
 @Service
 public class PatientServiceImpl implements PatientService {
 
@@ -53,12 +54,8 @@ public class PatientServiceImpl implements PatientService {
 
 	@Override
 	public List findByName(String name) {
-		// TODO Auto-generated method stub
 		return patientRepository.findByNameLike("%"+name+"%");
 	}
 
-	/*
-	 * @Override public List findByFullName(String name) { // TODO Auto-generated
-	 * method stub return patientRepository.findByNameLike("%"+name+"%"); }
-	 */
+	
 }
