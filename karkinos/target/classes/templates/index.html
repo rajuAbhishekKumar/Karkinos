@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Patient Management System</title>
+
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+	crossorigin="anonymous">
+
+<div style="background-image: url('images/186020.jpg');padding-bottom: 80px;">
+</head>
+<body>
+
+	<div align="center">
+		<div>
+			<img src="images/logo21.jpg" alt="logo"
+				style="padding-top: 50px; width: 300px;">
+		</div>
+		<div>
+			<h1>Patient Management System</h1>
+			
+		</div>
+	</div>
+	
+	<div class="container my-2">
+			<div>
+				<a align="center" th:href = "@{/}"><h3 style="background-color: white; color: #337ab7"  class="btn btn-info col-2">Home Page</h3></a>
+				<a th:href="@{/showNewPatientForm}"><h3 style="background-color: white" class="btn btn-info col-2"> Add Patient<br></a>
+			</div>
+		<hr><br><br>							
+		<h1>Patients List</h1>
+		
+		
+		<form action="/" class="form-inline">
+			<div class = "form-group mb-4 col-4">
+				<input type="text" class="form-control" name="name" placeholder="Search Patient Name here"  />
+			    <input type="submit" value="Search" class="btn btn-primary"/>
+			</div>
+		</form>
+					
+		<br>
+						
+		<table border="1" class="table table-striped table-responsive-md">
+			<thead>
+				<tr>
+					<th>Patient ID</th>
+					<th>Patient Full Name</th>
+					<th>Patient Gender</th>
+					<th>Patient Phone No.</th>
+					<th>Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				
+				<tr th:each="patient : ${listPatients}">
+
+					<td th:text="${patient.ID}"></td>
+					<td th:text="${patient.name}"></td>
+					<td th:text="${patient.gender}"></td>
+					<td th:text="${patient.phone}"></td>
+					<td><a th:href="@{/showFormForUpdate/{id}(id=${patient.ID})}"
+						class="btn btn-primary">Update</a> <a
+						th:href="@{/deletePatient/{id}(id=${patient.ID})}"
+						class="btn btn-danger">Delete</a></td>
+
+				</tr>
+
+			</tbody>
+		</table>
+	</div>
+
+</body>
+</html>
